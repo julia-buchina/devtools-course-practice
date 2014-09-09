@@ -51,6 +51,17 @@ set_option(ENABLE_DEBUG_INFO            "Add debug info"                        
 set_option(ENABLE_RELEASE               "Build RELEASE"                                               OFF  )
 set_option(CMAKE_VERBOSE                "Verbose mode"                                                OFF  )
 
+set_option(WITH_CODE_COVERAGE "Enable code coverage analysis" OFF)
+
+if (WITH_CODE_COVERAGE)
+  # if (CMAKE_COMPILER_IS_GNUCXX)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
+  # else()
+  #   message(WARNING "Code coverage can be estimated only when g++ compiler is used. Code coverage analysis is disabled.")
+  #   set(WITH_CODE_COVERAGE OFF)
+  # endif()
+endif()
+
 ##################################################
 
 macro(compiler_required compiler_name compiler_version)

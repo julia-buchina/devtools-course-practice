@@ -33,7 +33,7 @@ function CheckGoogleStyleInDir {
     # fi
 
     echo "Checking $dir"
-    sources=`find . -name "*.hpp" -or -name "*.h" -or -name "*.cpp"`
+    sources=`find . -name "*.hpp" -or -name "*.h" -or -name "*.cpp" -or -name "*.cc"`
     for file in $sources;
     do
         python ../cpplint.py $file
@@ -88,7 +88,7 @@ function BuildCMakeProject {
     dir=$cmake_build_dir
     mkdir -p $cmake_build_dir
     cd $cmake_build_dir
-    try cmake ../code
+    try cmake  -DWITH_CODE_COVERAGE=ON -DCMAKE_BUILD_TYPE=Debug ../code
     try make
 }
 

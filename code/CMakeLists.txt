@@ -14,5 +14,14 @@ add_local_dependency("gtest")
 # Include subprojects
 add_all_sub_dir("${CMAKE_SOURCE_DIR}" except "3rdparty")
 
+# REPORT
+message( STATUS "")
+message( STATUS "General configuration for ${PROJECT_NAME}")
+message( STATUS "======================================")
+message( STATUS "")
+message( STATUS "   Configuration:        ${CMAKE_BUILD_TYPE}")
+message( STATUS "   Enable code coverage: ${WITH_CODE_COVERAGE}")
+message( STATUS "")
+
 # Enable testing
 enable_testing()

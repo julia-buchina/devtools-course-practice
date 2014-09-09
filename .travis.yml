@@ -2,11 +2,16 @@ language: cpp
 compiler:
   - gcc
   - clang
+install:
+  - sudo pip install cpp-coveralls
 before_script:
   - if [ "$CXX" = "g++" ]; then sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y; fi
   - if [ "$CXX" = "g++" ]; then sudo apt-get update -qq; fi
   - if [ "$CXX" = "g++" ]; then sudo apt-get install -qq g++-4.8; fi
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
-script: (cd ./code && ./build-and-test.sh)
+script:
+  - cd ./code && ./build-and-test.sh
+after_success:
+  - coveralls --exclude code/3rdparty -E ".*\.cpp" --extension cc --root ../ --build-root ../build_cmake
 notifications:
   email: false
