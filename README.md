@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/UNN-VMK-Software/devtools-course-practice.svg?branch=master)](https://travis-ci.org/UNN-VMK-Software/devtools-course-practice)
 [![Documentation](https://readthedocs.org/projects/devtools-course-practice/badge/?version=latest)](http://devtools-course-practice.readthedocs.org)
-[![Coverage Status](https://img.shields.io/coveralls/UNN-VMK-Software/devtools-course-practice.svg)](https://coveralls.io/r/UNN-VMK-Software/devtools-course-practice?branch=enable-code-coverage)
+[![Coverage Status](https://img.shields.io/coveralls/UNN-VMK-Software/devtools-course-practice.svg)](https://coveralls.io/r/UNN-VMK-Software/devtools-course-practice?branch=master)
 
 Нижегородский Государственный Университет им. Н.И. Лобачевского
 
