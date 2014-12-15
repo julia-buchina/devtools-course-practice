@@ -54,7 +54,7 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
         expresson->arg1 = Fraction(a, b);
         expresson->arg2 = Fraction(c, d);
     }
-    catch (...) {
+    catch(...) {
         message_ = "Wrong number format!\n";
         return false;
     }
