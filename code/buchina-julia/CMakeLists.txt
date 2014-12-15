@@ -4,6 +4,7 @@
 
 set(libname  "buchina-julia-fractioncalc-library")
 set(testname "buchina-julia-fractioncalc-test")
+set(appname "buchina-julia-fractioncalc-application")
 
 message("")
 message("############################################")
@@ -25,3 +26,13 @@ add_lib_static(${libname} "include" "src")
 add_local_dependency(${libname})
 add_app(${testname} "test")
 target_link_libraries(${testname})
+
+# Declare application
+add_local_dependency(${libname})
+add_app(${appname} "application")
+
+#############################################
+##### Testing
+#############################################
+
+include("CTestTests.txt")
