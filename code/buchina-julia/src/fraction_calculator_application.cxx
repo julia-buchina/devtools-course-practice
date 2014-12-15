@@ -10,7 +10,7 @@
 #include <string>
 #include <sstream>
 
-Expression::Expression() : arg1(Fraction()), arg2(Fraction()), operation("") {}
+Expression::Expression() : arg1(Fraction()), arg2(Fraction()), operation(0) {}
 CalculatorApplication::CalculatorApplication() : message_("") {}
 
 void CalculatorApplication::help(const char* appname, const char* message) {
@@ -36,7 +36,7 @@ int64_t parseInteger(const char* arg) {
 }
 
 bool CalculatorApplication::parseArguments(int argc, const char** argv,
-                                           Expression* expresson) {
+                                           Expression* expression) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -51,8 +51,8 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
         int b = static_cast<int>(parseInteger(argv[2]));
         int c = static_cast<int>(parseInteger(argv[3]));
         int d = static_cast<int>(parseInteger(argv[4]));
-        expresson->arg1 = Fraction(a, b);
-        expresson->arg2 = Fraction(c, d);
+        expression->arg1 = Fraction(a, b);
+        expression->arg2 = Fraction(c, d);
     }
     catch(...) {
         message_ = "Wrong number format!\n";
