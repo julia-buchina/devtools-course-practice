@@ -42,7 +42,7 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
         return false;
     } else if (argc != 6) {
         message_ = "ERROR: Should be 5 arguments.\n\n";
-        help(argv[0]);
+        help(argv[0], "ERROR: Should be 5 arguments.\n\n");
         return false;
     }
 
