@@ -29,7 +29,7 @@ int64_t parseInteger(const char* arg) {
     int64_t value = strtol(arg, &end, 10);
 
     if (end[0]) {
-        throw std::string("Wrong number format\n");
+        throw std::string("Wrong number format!\n");
     }
 
     return value;
