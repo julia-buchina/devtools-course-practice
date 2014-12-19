@@ -29,7 +29,7 @@ int64_t parseInteger(const char* arg) {
     int64_t value = strtol(arg, &end, 10);
 
     if (end[0]) {
-        throw "Wrong number format\n";
+        throw std::string("Wrong number format\n");
     }
 
     return value;
@@ -41,7 +41,6 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
         help(argv[0]);
         return false;
     } else if (argc != 6) {
-        message_ = "ERROR: Should be 5 arguments.\n\n";
         help(argv[0], "ERROR: Should be 5 arguments.\n\n");
         return false;
     }
@@ -54,8 +53,8 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
         expression->arg1 = Fraction(a, b);
         expression->arg2 = Fraction(c, d);
     }
-    catch(...) {
-        message_ = "Wrong number format!\n";
+    catch(std::string std) {
+        message_ = std;
         return false;
     }
 
