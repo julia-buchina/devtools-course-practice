@@ -98,12 +98,7 @@ std::string CalculatorApplication::operator()(int argc, const char** argv) {
         stream << result.getDenominator();
         break;
      case '*':
-        try {
-            result = expr.arg1 * expr.arg2;
-        }
-        catch(std::string str) {
-            return str;
-        }
+        result = expr.arg1 * expr.arg2;
         stream << result.getNumerator() << " ";
         stream << result.getDenominator();
         break;
