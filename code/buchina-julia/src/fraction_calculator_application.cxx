@@ -17,8 +17,8 @@ void CalculatorApplication::help(const char* appname, const char* message) {
     message_ = std::string(message)
              + std::string("This is a fraction calculator application.\n\n")
              + "Please provide arguments in the following format:\n\n"
-             + "  $ " + appname + " <argument1> <argument2>"
-             + " <argument3> <argument4> <operation>\n\n"
+             + "  $ " + appname + " <arg1_numerator> <arg1_denominator>"
+             + " <arg2_numerator> <arg2_denominator> <operation>\n\n"
              + "Where all arguments are integer numbers, "
              + "and <operation> is one of '+', '-', '*' or '/'.\n";
 }
@@ -59,12 +59,17 @@ bool CalculatorApplication::parseArguments(int argc, const char** argv,
     }
 
     const char* op = argv[5];
-    if ((strlen(op) != 1) ||
-        (*op != '+' && *op != '-' && *op != '*' && *op != '/')) {
+    if (strcmp(op, "+") == 0) {
+        expression->operation = *op;
+    } else if (strcmp(op, "-") == 0) {
+        expression->operation = *op;
+    } else if (strcmp(op, "*") == 0) {
+        expression->operation = *op;
+    } else if (strcmp(op, "/") == 0) {
+        expression->operation = *op;
+    } else {
         message_ = std::string(op) + " - Wrong operation!\n";
         return false;
-    } else {
-        expression->operation = *op;
     }
 
     return true;
@@ -93,12 +98,22 @@ std::string CalculatorApplication::operator()(int argc, const char** argv) {
         stream << result.getDenominator();
         break;
      case '*':
-        result = expr.arg1 * expr.arg2;
+        try {
+            result = expr.arg1 * expr.arg2;
+        }
+        catch(std::string str) {
+            return str;
+        }
         stream << result.getNumerator() << " ";
         stream << result.getDenominator();
         break;
      case '/':
-        result = expr.arg1 / expr.arg2;
+        try {
+            result = expr.arg1 / expr.arg2;
+        }
+        catch(std::string str) {
+            return str;
+        }
         stream << result.getNumerator() << " ";
         stream << result.getDenominator();
         break;
