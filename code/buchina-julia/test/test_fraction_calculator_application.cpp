@@ -103,3 +103,19 @@ TEST_F(AppTest, Can_Divide) {
 
     Assert("Result = 1 2");
 }
+
+TEST_F(AppTest, Can_Detect_Divide_By_Zero_In_Arguments) {
+    args = {"1", "3", "1", "0", "+"};
+
+    Act(args);
+
+    Assert("Can't divide by zero.*");
+}
+
+TEST_F(AppTest, Can_Detect_Divide_By_Zero_In_Result_Of_Dividing) {
+    args = {"1", "3", "0", "1", "/"};
+
+    Act(args);
+
+    Assert("Can't divide by zero.*");
+}
