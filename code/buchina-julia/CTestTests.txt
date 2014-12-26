@@ -69,7 +69,7 @@ add_test(
     NAME can_Detect_Divide_By_Zero_In_Arguments
     COMMAND ${appname} 1 3 1 0 +
 )
-set_tests_properties (can_Detect_Divide_By_Zero_In_Argument
+set_tests_properties (can_Detect_Divide_By_Zero_In_Arguments
   PROPERTIES PASS_REGULAR_EXPRESSION "Can't divide by zero")
 
 add_test(
